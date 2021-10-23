@@ -32,7 +32,6 @@ import java.util.Vector;
 
 import javax.swing.JTable;
 
-
 public class UI {
 
 	private static Connection setConnect;
@@ -92,11 +91,12 @@ public class UI {
 		giveMeBorder(btnNewSuperspecies);
 		panel.add(btnNewSuperspecies);
 		btnNewSuperspecies.addActionListener(e -> {
-			if(tableIsShowed) {
+			if (tableIsShowed) {
 				noWrapPanel.remove(table);
-				tableIsShowed=false;
+				tableIsShowed = false;
 			}
-			displayShow(controller.createQuery(JOptionPane.showInputDialog("Input the name of new SuperSpecies")),textPane);
+			displayShow(controller.createQuery(JOptionPane.showInputDialog("Input the name of new SuperSpecies")),
+					textPane);
 			loadTables(comboBox);
 		});
 
@@ -105,12 +105,12 @@ public class UI {
 		btnDeleteSuperspecies.setBounds(551, 12, 188, 25);
 		giveMeBorder(btnDeleteSuperspecies);
 		panel.add(btnDeleteSuperspecies);
-		btnDeleteSuperspecies.addActionListener(e->{
-			if(tableIsShowed) {
+		btnDeleteSuperspecies.addActionListener(e -> {
+			if (tableIsShowed) {
 				noWrapPanel.remove(table);
-				tableIsShowed=false;
+				tableIsShowed = false;
 			}
-			displayShow(controller.dropTableQuery(comboBox.getSelectedItem().toString()),textPane);
+			displayShow(controller.dropTableQuery(comboBox.getSelectedItem().toString()), textPane);
 			loadTables(comboBox);
 		});
 
@@ -118,21 +118,20 @@ public class UI {
 		JButton btnNewSuperwarrior = new JButton("New SuperWarrior");
 		btnNewSuperwarrior.setBounds(47, 58, 188, 25);
 		giveMeBorder(btnNewSuperwarrior);
-		
+
 		panel.add(btnNewSuperwarrior);
-		btnNewSuperwarrior.addActionListener(e->{
-			if(tableIsShowed) {
+		btnNewSuperwarrior.addActionListener(e -> {
+			if (tableIsShowed) {
 				noWrapPanel.remove(table);
-				tableIsShowed=false;
+				tableIsShowed = false;
 			}
-			displayShow(controller.insertQuery(comboBox.getSelectedItem().toString(), 
+			displayShow(controller.insertQuery(comboBox.getSelectedItem().toString(),
 					JOptionPane.showInputDialog("Input the name of new SuperWarrior"),
 					JOptionPane.showInputDialog("Input the description of new SuperWarrior"),
-					Integer.parseInt(JOptionPane.showInputDialog("Input Wind power:")), 
-					Integer.parseInt(JOptionPane.showInputDialog("Input water power")), 
-					Integer.parseInt(JOptionPane.showInputDialog("Input fire power"))),
-					textPane);
-			
+					Integer.parseInt(JOptionPane.showInputDialog("Input Wind power:")),
+					Integer.parseInt(JOptionPane.showInputDialog("Input water power")),
+					Integer.parseInt(JOptionPane.showInputDialog("Input fire power"))), textPane);
+
 		});
 
 		/**************************************************************/
@@ -140,14 +139,15 @@ public class UI {
 		btnDeleteSuperwarrior.setBounds(47, 102, 188, 25);
 		giveMeBorder(btnDeleteSuperwarrior);
 		panel.add(btnDeleteSuperwarrior);
-		
-		btnDeleteSuperwarrior.addActionListener(e->{
-			if(tableIsShowed) {
+
+		btnDeleteSuperwarrior.addActionListener(e -> {
+			if (tableIsShowed) {
 				noWrapPanel.remove(table);
-				tableIsShowed=false;
+				tableIsShowed = false;
 			}
-			displayShow(controller.deleteQuery(comboBox.getSelectedItem().toString(), JOptionPane.showInputDialog("Input the name of  SuperWarrior")), textPane);
-			
+			displayShow(controller.deleteQuery(comboBox.getSelectedItem().toString(),
+					JOptionPane.showInputDialog("Input the name of  SuperWarrior")), textPane);
+
 		});
 
 		/*******************************************************************/
@@ -156,28 +156,29 @@ public class UI {
 		giveMeBorder(btnDeleteSuperwarrior_1);
 		panel.add(btnDeleteSuperwarrior_1);
 
-		btnDeleteSuperwarrior_1.addActionListener(e->{
-			if(tableIsShowed) {
+		btnDeleteSuperwarrior_1.addActionListener(e -> {
+			if (tableIsShowed) {
 				noWrapPanel.remove(table);
-				tableIsShowed=false;
+				tableIsShowed = false;
 			}
 			displayShow(controller.givePowerQuery(comboBox.getSelectedItem().toString(),
-					JOptionPane.showInputDialog("Input the description of  SuperWarrior"), 
+					JOptionPane.showInputDialog("Input the description of  SuperWarrior"),
 					Integer.parseInt(JOptionPane.showInputDialog("Input Wind power:")),
 					Integer.parseInt(JOptionPane.showInputDialog("Input water power")),
-					Integer.parseInt(JOptionPane.showInputDialog("Input fire power"))),textPane);
+					Integer.parseInt(JOptionPane.showInputDialog("Input fire power"))), textPane);
 		});
 		/*********************************************************************/
 		JButton btnResetSuperWarrior = new JButton("Reset SuperWarrior");
 		btnResetSuperWarrior.setBounds(551, 58, 188, 25);
 		giveMeBorder(btnResetSuperWarrior);
 		panel.add(btnResetSuperWarrior);
-		btnResetSuperWarrior.addActionListener(e->{
-			if(tableIsShowed) {
+		btnResetSuperWarrior.addActionListener(e -> {
+			if (tableIsShowed) {
 				noWrapPanel.remove(table);
-				tableIsShowed=false;
+				tableIsShowed = false;
 			}
-			displayShow(controller.resetQuery(comboBox.getSelectedItem().toString(), JOptionPane.showInputDialog("Input the name of  SuperWarrior"), 0, 0, 0),textPane);
+			displayShow(controller.resetQuery(comboBox.getSelectedItem().toString(),
+					JOptionPane.showInputDialog("Input the name of  SuperWarrior"), 0, 0, 0), textPane);
 		});
 
 		/****************************************************************/
@@ -185,13 +186,14 @@ public class UI {
 		btnSearchWarrior.setBounds(306, 58, 141, 25);
 		giveMeBorder(btnSearchWarrior);
 		panel.add(btnSearchWarrior);
-		btnSearchWarrior.addActionListener(e->{
-			if(tableIsShowed) {
+		btnSearchWarrior.addActionListener(e -> {
+			if (tableIsShowed) {
 				noWrapPanel.remove(table);
-				tableIsShowed=false;
+				tableIsShowed = false;
 			}
-			ResultSet rs=controller.searchQuery(comboBox.getSelectedItem().toString(), JOptionPane.showInputDialog("Input the name of  SuperWarrior"));
-			printTable(rs,table,noWrapPanel);
+			ResultSet rs = controller.searchQuery(comboBox.getSelectedItem().toString(),
+					JOptionPane.showInputDialog("Input the name of  SuperWarrior"));
+			printTable(rs, table, noWrapPanel);
 		});
 
 		/************************************************************/
@@ -199,10 +201,10 @@ public class UI {
 		btnListAll.setBounds(306, 102, 141, 25);
 		giveMeBorder(btnListAll);
 		panel.add(btnListAll);
-		btnListAll.addActionListener(e->{
+		btnListAll.addActionListener(e -> {
 			textPane.setText("");
-			ResultSet rs=controller.selectQuery(comboBox.getSelectedItem().toString());
-			printTable(rs,table,noWrapPanel);
+			ResultSet rs = controller.selectQuery(comboBox.getSelectedItem().toString());
+			printTable(rs, table, noWrapPanel);
 		});
 
 		JLabel lblDaniel = new JLabel("Daniel Giménez González IFP");
@@ -213,64 +215,58 @@ public class UI {
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private void printTable(ResultSet rs, JTable table2,JPanel panel) {
+	private void printTable(ResultSet rs, JTable table2, JPanel panel) {
 		// TODO Auto-generated method stub
 		try {
-			
-			 Vector data = new Vector();
-			    while (rs.next()) {
-			        @SuppressWarnings("rawtypes")
-					Vector row = new Vector();
-			        row.add(rs.getString("name"));
-			        row.add(rs.getString("description"));
-			        row.add(rs.getInt("wind"));
-			        row.add(rs.getInt("water"));
-			        row.add(rs.getInt("fire"));
-			        data.add(row);
-			    }
 
-			    // initialize the column names
-			    Vector columnNames = new Vector();
-			    columnNames.add("Name");
-			    columnNames.add("Description");
-			    columnNames.add("Wind");
-			    columnNames.add("Water");
-			    columnNames.add("Fire");
+			Vector data = new Vector();
+			while (rs.next()) {
+				@SuppressWarnings("rawtypes")
+				Vector row = new Vector();
+				row.add(rs.getString("name"));
+				row.add(rs.getString("description"));
+				row.add(rs.getInt("wind"));
+				row.add(rs.getInt("water"));
+				row.add(rs.getInt("fire"));
+				data.add(row);
+			}
 
-			    // create the jtable with the data and the column names
-			   table = new JTable(data, columnNames);
-			   panel.add(table, BorderLayout.NORTH);
-			   panel.revalidate();
-			   panel.repaint();
-			   tableIsShowed=true;
-			   
-		}catch(Exception e) {
+			// initialize the column names
+			Vector columnNames = new Vector();
+			columnNames.add("Name");
+			columnNames.add("Description");
+			columnNames.add("Wind");
+			columnNames.add("Water");
+			columnNames.add("Fire");
+
+			// create the jtable with the data and the column names
+			table = new JTable(data, columnNames);
+			panel.add(table, BorderLayout.NORTH);
+			panel.revalidate();
+			panel.repaint();
+			tableIsShowed = true;
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		    
-		   
+
 	}
 
 	private static void connectDb() {
 		MyConnection connection = new MyConnection();
 
-		/*
-		 * JOptionPane.showConfirmDialog(null,
-		 * "LA URL DE LA BASE DE DATOS DEBE SER ÚNICAMENTE LA IP:Puerto/base de datos \nEJEMPLO:192.168.1.69:3306/Tienda"
-		 * + "\n\tEJEMPLO : localhost:3306/Tienda", "ATENCIÓN",
-		 * JOptionPane.DEFAULT_OPTION);
-		 * 
-		 * String url = JOptionPane.showInputDialog("Introduzca la url del servidor");
-		 * String useR =
-		 * JOptionPane.showInputDialog("Introduzca el usuario de la base de datos");
-		 * String password =
-		 * JOptionPane.showInputDialog("Introduzca la contraseña de la base de datos");
-		 * 
-		 * 
-		 * setConnect = connection.getConexion(url, useR, password);
-		 */
-		setConnect = connection.getConexion("192.168.1.13:3306/acceso", "admin", "Erestont1988!");
+		JOptionPane.showConfirmDialog(null,
+				"LA URL DE LA BASE DE DATOS DEBE SER ÚNICAMENTE LA IP:Puerto/base de datos \nEJEMPLO:192.168.1.69:3306/Tienda"
+						+ "\n\tEJEMPLO : localhost:3306/Tienda",
+				"ATENCIÓN", JOptionPane.DEFAULT_OPTION);
+
+		String url = JOptionPane.showInputDialog("Introduzca la url del servidor");
+		String useR = JOptionPane.showInputDialog("Introduzca el usuario de la base de datos");
+		String password = JOptionPane.showInputDialog("Introduzca la contraseña de la base de datos");
+
+		setConnect = connection.getConexion(url, useR, password);
+
+
 		controller = new SuperWarriorControllerRepoImpl(setConnect);
 
 	}
@@ -290,9 +286,7 @@ public class UI {
 		noWrapPanel = new JPanel(new BorderLayout());
 		noWrapPanel.add(text2);
 		JScrollPane scrollPane = new JScrollPane(noWrapPanel);
-		
-		
-		
+
 		scrollPane.setBounds(47, 139, 685, 172);
 		panel.add(scrollPane);
 		try {
@@ -306,9 +300,9 @@ public class UI {
 	}
 
 	private void giveMeBorder(JComponent b) {
-		 b.setBorder(new RoundedBorder(8));
+		b.setBorder(new RoundedBorder(8));
 	}
-	
+
 	private void loadTables(JComboBox<String> jcb) {
 		jcb.removeAllItems();
 		for (String table : controller.getTableNames()) {
@@ -316,8 +310,8 @@ public class UI {
 		}
 	}
 
-	private static void displayShow(String msg,JTextPane t) {
-		
+	private static void displayShow(String msg, JTextPane t) {
+
 		t.setText("");
 		try {
 
