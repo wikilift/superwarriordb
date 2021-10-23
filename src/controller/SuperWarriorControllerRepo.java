@@ -3,14 +3,14 @@ package controller;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import javax.swing.JTextPane;
+
 
 public interface SuperWarriorControllerRepo {
 
 
 	
 	String createQuery(String nameOfTable);
-	boolean insertQuery(String nameOfTable,String name,String description,int wind,int fire, int water);
+	String insertQuery(String nameOfTable,String name,String description,int wind,int fire, int water);
 	ResultSet selectQuery(String name);
 	String resetQuery(String tableName,String name, int fire, int wind, int water);
 	ResultSet searchQuery(String tableName,String nameOfWarrior);

@@ -2,15 +2,13 @@ package controller;
 
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
-import javax.swing.JTextPane;
 
 import com.mysql.jdbc.DatabaseMetaData;
 
@@ -19,7 +17,7 @@ import data.CommandsSQL;
 public class SuperWarriorControllerRepoImpl implements SuperWarriorControllerRepo{
 
 	private Connection con;
-	private  PreparedStatement sendData;
+
 
 	public SuperWarriorControllerRepoImpl(Connection con) {
 		super();
@@ -46,7 +44,7 @@ public class SuperWarriorControllerRepoImpl implements SuperWarriorControllerRep
 	}
 
 	@Override
-	public boolean insertQuery(String nameOfTable,String name, String description, int wind, int fire, int water) {
+	public String insertQuery(String nameOfTable,String name, String description, int wind, int fire, int water) {
 		int alteredRows=0;
 		try {
 			if(wind>5)wind=5;
@@ -67,7 +65,7 @@ public class SuperWarriorControllerRepoImpl implements SuperWarriorControllerRep
 		}
 
 		
-		return (alteredRows>0)?true:false;
+		return (alteredRows>0)?"SuperWarrior inserted correctly":"Error has ocurred";
 	}
 
 	@Override

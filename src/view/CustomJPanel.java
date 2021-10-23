@@ -12,7 +12,6 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextPane;
 
 public class CustomJPanel extends JPanel{
 
